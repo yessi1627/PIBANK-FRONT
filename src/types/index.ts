@@ -51,6 +51,62 @@ export interface Transaction {
   status: string
 }
 
+export interface VirtualCard {
+  id: number
+  cardNumber: string
+  cardHolder: string
+  expiryDate: string
+  blocked: boolean
+  accountId: number
+  createdAt: string
+}
+
+export interface DynamicCvv {
+  cvv: string
+  expiresAt: string
+}
+
+export interface AtmCode {
+  id: number
+  code: string
+  amount: number
+  expiresAt: string
+  status: string
+  accountId: number
+  createdAt: string
+}
+
+export interface Loan {
+  id: number
+  amount: number
+  term: number
+  interestRate: number
+  monthlyPayment: number
+  status: string
+  createdAt: string
+  balance: number
+}
+
+export interface SavingsPocket {
+  id: number
+  name: string
+  emoji: string
+  targetAmount: number
+  currentAmount: number
+  accountId: number
+  createdAt: string
+}
+
+export interface FraudAlert {
+  id: number
+  type: string
+  description: string
+  status: 'PENDING' | 'RESOLVED' | 'DISMISSED'
+  createdAt: string
+  userId: number
+  transactionId?: number
+}
+
 export interface ApiError {
   message: string
   status: number
