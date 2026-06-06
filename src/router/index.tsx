@@ -44,6 +44,13 @@ export const router = createBrowserRouter([
     },
   },
   {
+    path: '/change-password',
+    lazy: async () => {
+      const { ChangePasswordPage } = await import('@/pages/auth/ChangePasswordPage')
+      return { Component: () => <PrivateRoute><ChangePasswordPage /></PrivateRoute> }
+    },
+  },
+  {
     path: '/dashboard',
     lazy: async () => {
       const { DashboardPage } = await import('@/pages/dashboard/DashboardPage')
