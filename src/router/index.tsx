@@ -65,6 +65,13 @@ export const router = createBrowserRouter([
     },
   },
   {
+    path: '/accounts/:id',
+    lazy: async () => {
+      const { AccountDetailPage } = await import('@/pages/accounts/AccountDetailPage')
+      return { Component: () => <PrivateRoute><AccountDetailPage /></PrivateRoute> }
+    },
+  },
+  {
     path: '/transactions',
     lazy: async () => {
       const { TransactionsPage } = await import('@/pages/transactions/TransactionsPage')
